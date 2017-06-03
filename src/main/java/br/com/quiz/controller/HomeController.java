@@ -16,10 +16,6 @@ import br.com.quiz.repository.PessoaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**
- *
- * @author Ahron Henrique Helfenstein <ahron.helfenstein@cwi.com.br>
- */
 @Controller
 public class HomeController {
 

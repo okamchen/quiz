@@ -9,11 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-/**
- *
- * @author Ahron Henrique Helfenstein <ahron.helfenstein@cwi.com.br>
- */
 @Entity
 @Table(name = "pessoa")
 public class PessoaEntity implements Serializable {

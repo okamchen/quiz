@@ -5,10 +5,6 @@
  */
 package br.com.quiz.controller;
 
-/**
- *
- * @author ahelfenstein
- */
 @org.springframework.web.bind.annotation.RestController(value = "/rest")
 public class RestController {
    
