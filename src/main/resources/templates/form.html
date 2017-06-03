@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Cadastro</title>
+        <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div th:replace="fragments/menu :: menu"></div>
+            <div class="container ">
+                <form method="post"  action="/save" class="form-horizontal">
+                    <fieldset>
+                        <legend>Form Name</legend>
+                        <input id="id" th:value="${pessoa.id}" name="id" type="hidden"/>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="nome">Nome</label>  
+                            <div class="col-md-4">
+                                <input id="nome" th:value="${pessoa.nome}" name="nome" type="text" placeholder="nome" class="form-control input-md"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="cpf">CPF</label>  
+                            <div class="col-md-4">
+                                <input id="cpf" th:value="${pessoa.cpf}" name="cpf" type="text" placeholder="CPF" class="form-control input-md"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4 pull-right">
+                                <button class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div> 
+    </body>
+</html>
