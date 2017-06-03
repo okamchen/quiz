@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.com.quiz.entity.UserEntity;
 import br.com.quiz.repository.UserRepository;
 
-/**
- *
- * @author Ahron Henrique Helfenstein <ahron.helfenstein@cwi.com.br>
- */
 @Controller
 public class LoginController {
 	

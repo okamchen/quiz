@@ -7,10 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
- * @author ahelfenstein
- */
 @Entity
 @Table(name = "user")
 public class UserEntity implements Serializable {

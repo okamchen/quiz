@@ -7,12 +7,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
 import br.com.quiz.entity.PessoaEntity;
-import br.com.quiz.repository.dto.PessoaTesteDTO;
+import br.com.quiz.repository.dto.PessoaDTO;
 
-/**
- *
- * @author Ahron Henrique Helfenstein <ahron.helfenstein@cwi.com.br>
- */
 public interface PessoaRepository extends PagingAndSortingRepository<PessoaEntity, Long> {
 
     public List<PessoaEntity> findByNome(String nome);
