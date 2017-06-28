@@ -1,2 +1,1 @@
-
-insert into user(id, username, password) values (1, 'arroz', 'arroz');
+insert into user(id, username, password) values (user_seq.nextval, 'arroz', 'arroz');

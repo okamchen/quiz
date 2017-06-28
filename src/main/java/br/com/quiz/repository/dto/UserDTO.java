@@ -1,10 +1,29 @@
 package br.com.quiz.repository.dto;
 
-public class UsuarioDTO {
+import java.io.Serializable;
 
+public class UserDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
 	private Long id;
     private String username;
     private String password;
+    
+    public UserDTO() {
+    	super();
+    }
+    
+    public UserDTO(String username, String password) {
+    	this.username = username;
+    	this.password = password;
+    }
+    
+    public UserDTO(Long id, String username, String password) {
+    	this.id = id;
+    	this.username = username;
+    	this.password = password;
+    }
     
 	public Long getId() {
 		return id;

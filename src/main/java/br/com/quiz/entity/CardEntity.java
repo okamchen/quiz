@@ -3,13 +3,15 @@ package br.com.quiz.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,33 +23,36 @@ public class CardEntity implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String nome;
 	
-	@OneToMany(mappedBy = "card")
-	private List<PerguntaEntity> perguntas;
+	@Column(name="name")
+	private String name;
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "card_question", joinColumns = @JoinColumn(name = "id_card", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"))
+	private List<QuestionEntity> questions;
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getNome() {
-		return nome;
+
+	public String getName() {
+		return name;
 	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public List<PerguntaEntity> getPerguntas() {
-		return perguntas;
+
+	public List<QuestionEntity> getQuestions() {
+		return questions;
 	}
-	
-	public void setPerguntas(List<PerguntaEntity> perguntas) {
-		this.perguntas = perguntas;
+
+	public void setQuestions(List<QuestionEntity> questions) {
+		this.questions = questions;
 	}
 
 }
