@@ -21,19 +21,42 @@
 			</header>
 
       <div class="col-md-4 desafio">
-        <div class="col-md-8 card">
-          <div class="cold-md-8 pergunta">
-            iashdiuahsd????????????????????<br>???????????????
-          </div>
-          
-          <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button>
-          <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+
+        <div id='card-list-container'>
+          <h3>Lista de cards</h3>
+
+          <ul id="card-list">
+          </ul>
         </div>
 
+        <div id='card-container'>
+
+        </div>
       </div>
-      <div class="col-md-3 usuarios">usuarios</div>
-      <div class="col-md-3 notificacoes">notificacoes</div>
+
+      <div class="col-md-3 usuarios">
+        <h3>Usuários</h3>
+        <ul>
+          <li><a href="#" class="user" id="1">Rodrigo</a></li>
+          <li><a href="#" class="user" id="2">Pedro</a></li>
+          <li><a href="#" class="user" id="3">João</a></li>
+          <li><a href="#" class="user" id="4">Carlos</a></li>
+          <li><a href="#" class="user" id="5">Paulo</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3 notificacoes">
+        <h3>Notificações</h3>
+        <ul>
+          <li><a href="#" class="challenge" id="1" cardList="2">Desafio pendente (Rodrigo)</a></li>
+          <li><a href="#" class="challenge" id="2" cardList="3">Desafio pendente (Pedro)</a></li>
+        </ul>
+      </div>
 
     </div>
   </body>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.24.1/ramda.min.js"></script>
+  <script src="js/main.js"></script>
 </html>
