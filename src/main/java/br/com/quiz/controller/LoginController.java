@@ -12,9 +12,8 @@ import br.com.quiz.repository.UserRepository;
 
 @Controller
 public class LoginController {
-	
 
-    @Autowired
+	@Autowired
     private UserRepository userRepository;
 
     @GetMapping("/login")
@@ -22,6 +21,20 @@ public class LoginController {
         return "login";
     }
 
+    @PostMapping("/login")
+    public String logar(@RequestParam(name = "password", required = true) String password,
+			@RequestParam(name = "username", required = true) String username, 
+			Model model) {
+    	
+    	UserEntity user = userRepository.findByUsernameAndPassword(username, password);
+    	
+    	if(user != null){
+    		return "home";	
+    	}
+    	
+        return "login";
+    }
+    
     @PostMapping(path = "/login/user")
 	public String createAccount(@RequestParam(name = "password", required = true) String password,
 			@RequestParam(name = "username", required = true) String username, 
