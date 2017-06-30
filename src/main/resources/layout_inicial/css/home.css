@@ -51,3 +51,9 @@
   height: 20%;
   margin-left: 20px;
 }
+
+.lista li {
+  border-bottom: 1px solid black;
+  list-style-type: none;
+  width: 100%;
+}
