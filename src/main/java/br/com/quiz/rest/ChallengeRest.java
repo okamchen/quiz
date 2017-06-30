@@ -1,7 +1,6 @@
 package br.com.quiz.rest;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.quiz.entity.CardEntity;
 import br.com.quiz.entity.ChallengeEntity;
 import br.com.quiz.entity.UserEntity;
-import br.com.quiz.mapper.ChallengeMapper;
 import br.com.quiz.repository.ChallengeRepository;
-import br.com.quiz.repository.dto.ChallengeDTO;
 
 @RestController
 @RequestMapping("/api/challenge")
@@ -25,9 +22,9 @@ public class ChallengeRest {
 	private ChallengeRepository repository;
 
 	@RequestMapping(method = RequestMethod.GET)
-    public List<ChallengeDTO> getAllChallenges() {
-		Iterable<ChallengeEntity> challenges = repository.findAll();
-		return new ChallengeMapper().convertTO(challenges);
+    public Iterable<ChallengeEntity> getAllChallenges() {
+		return repository.findAll();
+//		return new ChallengeMapper().convertTO(challenges);
     }
 
 	@RequestMapping(method = RequestMethod.POST)
