@@ -10,7 +10,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import br.com.quiz.entity.UserEntity;
 
 public interface UserRepository extends PagingAndSortingRepository<UserEntity, Long> {
-
-    UserEntity findByUsername(String username);
+    
+	UserEntity findByUsername(String username);
+	
     UserEntity findByUsernameAndPassword(String username, String password);
 }

@@ -30,6 +30,12 @@ public class CardEntity implements Serializable {
 	@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "card_question", joinColumns = @JoinColumn(name = "id_card", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"))
 	private List<QuestionEntity> questions;
+	
+	public CardEntity() {}
+	
+	public CardEntity(Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;

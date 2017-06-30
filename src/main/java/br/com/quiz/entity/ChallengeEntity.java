@@ -11,27 +11,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "challenge")
+@SequenceGenerator(name="challenge_seq", sequenceName="challenge_seq", initialValue=0, allocationSize=1)
 public class ChallengeEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id  
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="challenge_seq")
 	private Long id;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional=true)
 	@JoinColumn(name="id_challenged", referencedColumnName="id")
 	private UserEntity challenged;
-
-	@ManyToOne
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_challenger", referencedColumnName="id")
 	private UserEntity challenger;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_card", referencedColumnName="id")
 	private CardEntity card;
 	

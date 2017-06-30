@@ -1,12 +1,15 @@
 package br.com.quiz.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,6 +20,8 @@ public class UserEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="user_seq")
 	private Long id;
 	
 	@Column(name="username")
@@ -25,16 +30,22 @@ public class UserEntity implements Serializable {
 	@Column(name="password")
     private String password;
 	
-	public UserEntity() {
+	@OneToMany(mappedBy="challenged", fetch = FetchType.LAZY)
+	private List<ChallengeEntity> challengesChallenged;
+	
+	@OneToMany(mappedBy="challenger", fetch = FetchType.LAZY)
+	private List<ChallengeEntity> challengesChallenger;
+
+	public UserEntity() {}
+	
+	public UserEntity(Long id) {
+		this.id = id;
 	}
 	
 	public UserEntity(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="user_seq")
     public Long getId() {
         return id;
     }
@@ -59,4 +70,20 @@ public class UserEntity implements Serializable {
         this.password = password;
     }
 
+	public List<ChallengeEntity> getChallengesChallenged() {
+		return challengesChallenged;
+	}
+
+	public void setChallengesChallenged(List<ChallengeEntity> challengesChallenged) {
+		this.challengesChallenged = challengesChallenged;
+	}
+
+	public List<ChallengeEntity> getChallengesChallenger() {
+		return challengesChallenger;
+	}
+
+	public void setChallengesChallenger(List<ChallengeEntity> challengesChallenger) {
+		this.challengesChallenger = challengesChallenger;
+	}
+	
 }
